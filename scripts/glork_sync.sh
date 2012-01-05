@@ -30,6 +30,21 @@ fi
 
 }
 
+function file_exist_or_die_mount_warning ()
+{
+
+if [ -f $1 -o -d $1 ]
+then
+    echo "	[OK]	$1 found"
+else
+    echo "	[ERROR]	$1 not found"
+    echo
+    echo "	Make sure you double-clicked on Glork_Shared to connect to the server."
+    echo
+    exit 0;
+fi
+
+}
 
 function dir_exist_or_create()
 {
@@ -70,7 +85,7 @@ echo "Folder For Group Glork Patches: $GROUP_LOCAL_PATCHES"
 dir_exist_or_create $GROUP_LOCAL_PATCHES
 
 echo "Glork Master Folder: $GLORK_MASTER"
-file_exist_or_die $GLORK_MASTER
+file_exist_or_die_mount_warning $GLORK_MASTER
 
 echo "Glork Master Patches Folder: $GLORK_MASTER_PATCHES"
 file_exist_or_die $GLORK_MASTER_PATCHES
