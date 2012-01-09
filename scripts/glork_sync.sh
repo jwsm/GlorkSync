@@ -1,19 +1,11 @@
-#Locations
-GLORK_LOCAL=/Applications/Max5/Glork
-GLORK_MASTER=/Volumes/Glork_Shared
-	# For testing
-	#GLORK_MASTER=~/Glork_Master
-GLORK_MASTER_PATCHES=$GLORK_MASTER/patches
-GLORK_MASTER_LIBS=$GLORK_MASTER/libs
+# GLORKSYNC
+# Synchronizes a "client" glork folder with a "server" (master) glork folder.
+# - Uploads this user's personal glork files to the master repo.
+# - Downloads other user's personal glork files, along with glork libs, from the master repo.
 
-CONFIG_FILE=$GLORK_LOCAL/config.txt
-USERNAME=`cat $CONFIG_FILE`
-
-GROUP_LOCAL_PATCHES=$GLORK_LOCAL/patches
-MY_LOCAL_PATCHES=$GLORK_LOCAL/$USERNAME
-GLORK_LOCAL_LIBS=$GLORK_LOCAL/libs
-
-
+# FUNCTIONS
+# ---------------------------------
+# Functions for checking that files exist.
 function file_exist_or_die()
 {
 
