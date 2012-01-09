@@ -19,7 +19,16 @@ else
     exit 0;
 fi
 }
-
+function file_exist_or_move_app()
+{
+if [ $1 != "$0" ]
+then
+	echo
+	echo "	[ERROR] Please move GlorkSync to the Applications folder."
+	echo
+	exit 0;
+fi
+}
 function file_exist_or_die_mount_warning ()
 {
 if [ -f $1 -o -d $1 ]
