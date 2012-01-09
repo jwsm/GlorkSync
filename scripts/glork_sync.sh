@@ -67,6 +67,23 @@ else
 fi
 }
 
+# ---------------------------------
+
+#Locations
+#Check to see that App is run from Applications folder
+GLORKSYNC_APP=/Applications/GlorkSync.app
+GLORKSYNC_APP_SCRIPT=$GLORKSYNC_APP/Contents/Resources/script
+file_exist_or_move_app $GLORKSYNC_APP_SCRIPT
+echo "GlorkSync 1.1"
+
+# Check that configuration files exist
+# (files specify locations of client and server folders)
+echo "---------------------"
+echo "Checking Config Files..."
+GLORK_CLIENT_LOC=$GLORKSYNC_APP/glork_client_folder
+GLORK_SERVER_LOC=$GLORKSYNC_APP/glork_server_folder
+file_exist_or_die $GLORK_CLIENT_LOC
+file_exist_or_die $GLORK_SERVER_LOC
 
 # Read the configuration files
 # substitute ~/ and /Users/$USER in path with this user's home directory
