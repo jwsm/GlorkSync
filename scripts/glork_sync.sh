@@ -93,16 +93,11 @@ GLORK_LOCAL_LIBS=$GLORK_LOCAL/libs
 # ---------------------------------
 # Print out Locations
 echo
-echo "Glork File Sync 1.0"
 echo "---------------------"
 echo "Configuration:"
 echo
 echo "Local Glork Folder: $GLORK_LOCAL"
 file_exist_or_die $GLORK_LOCAL
-
-echo "Config File: $CONFIG_FILE"
-file_exist_or_die $CONFIG_FILE
-echo "Your Glork Username: $USERNAME"
 
 echo "Local Copy of Glork Libraries: $LOCAL_LIBS"
 dir_exist_or_create $LOCAL_LIBS
