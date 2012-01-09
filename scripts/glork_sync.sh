@@ -68,6 +68,12 @@ fi
 }
 
 
+# Read the configuration files
+# substitute ~/ and /Users/$USER in path with this user's home directory
+GLORK_LOCAL=$(cat $GLORK_CLIENT_LOC | sed "s/\$USER/$USER/"| sed "s/^\~/\/Users\/$USER/")
+GLORK_MASTER=$(cat $GLORK_SERVER_LOC | sed "s/\$USER/$USER/"| sed "s/^\~/\/Users\/$USER/")
+echo "Client folder: $GLORK_LOCAL"
+echo "Server folder: $GLORK_MASTER"
 
 echo "Username Configuration File:"
 CONFIG_FILE=$GLORK_LOCAL/config.txt
@@ -114,12 +120,6 @@ file_exist_or_die_mount_warning $GLORK_MASTER
 echo "Glork Master Patches Folder: $GLORK_MASTER_PATCHES"
 file_exist_or_die $GLORK_MASTER_PATCHES
 
-# Read the configuration files
-# substitute ~/ and /Users/$USER in path with this user's home directory
-GLORK_LOCAL=$(cat $GLORK_CLIENT_LOC | sed "s/\$USER/$USER/"| sed "s/^\~/\/Users\/$USER/")
-GLORK_MASTER=$(cat $GLORK_SERVER_LOC | sed "s/\$USER/$USER/"| sed "s/^\~/\/Users\/$USER/")
-echo "Client folder: $GLORK_LOCAL"
-echo "Server folder: $GLORK_MASTER"
 
 echo
 echo "	All File Paths Located"
