@@ -52,7 +52,19 @@ else
     echo "	[OK]	$1 not found, created"
     echo
 fi
-
+}
+function pattern_match_username()
+{
+if [[ $1 =~ ^[A-Za-z0-9]+$ ]]
+then
+	echo "	[OK]	Username $1 valid."
+else
+	echo "	[ERROR]	Username $1 invalid."
+	echo "			Usernames can only contain letters and numbers."
+	echo
+	echo "	Please change your username in the config.txt file in your glork folder."
+	exit 0;
+fi
 }
 
 
