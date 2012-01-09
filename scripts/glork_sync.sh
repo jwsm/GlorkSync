@@ -8,7 +8,6 @@
 # Functions for checking that files exist.
 function file_exist_or_die()
 {
-
 if [ -f $1 -o -d $1 ]
 then
     echo "	[OK]	$1 found"
@@ -19,12 +18,10 @@ else
     echo
     exit 0;
 fi
-
 }
 
 function file_exist_or_die_mount_warning ()
 {
-
 if [ -f $1 -o -d $1 ]
 then
     echo "	[OK]	$1 found"
@@ -35,12 +32,9 @@ else
     echo
     exit 0;
 fi
-
 }
-
 function dir_exist_or_create()
 {
-
 if [ -d $1 ]
 then
     echo "	[OK]	$1 found"
@@ -86,8 +80,6 @@ file_exist_or_die $GLORK_MASTER_PATCHES
 echo
 echo "	All File Paths Located"
 echo
-
-
 
 # echo "---------------------"
 # echo "Creating a Backup of Your Folder:"
