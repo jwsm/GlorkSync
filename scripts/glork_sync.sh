@@ -69,6 +69,28 @@ fi
 
 
 
+echo "Username Configuration File:"
+CONFIG_FILE=$GLORK_LOCAL/config.txt
+file_exist_or_die $CONFIG_FILE
+USERNAME=`cat $CONFIG_FILE`
+echo "Your Glork Username: $USERNAME"
+echo "Checking Username Validity..."
+pattern_match_username $USERNAME
+
+echo
+echo "	Found all required config files."
+
+# ---------------------------------
+# Determine other paths based on config files
+
+GLORK_MASTER_PATCHES=$GLORK_MASTER/patches
+GLORK_MASTER_LIBS=$GLORK_MASTER/libs
+
+GROUP_LOCAL_PATCHES=$GLORK_LOCAL/patches
+MY_LOCAL_PATCHES=$GLORK_LOCAL/$USERNAME
+GLORK_LOCAL_LIBS=$GLORK_LOCAL/libs
+
+# ---------------------------------
 # Print out Locations
 echo
 echo "Glork File Sync 1.0"
